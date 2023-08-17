@@ -13,7 +13,7 @@ const typeDefs = `
     description: String
     title: String
     image: String
-    link: string
+    link: String
   }
 
  
@@ -26,15 +26,14 @@ const typeDefs = `
   type Query {
     users: [User]
     user(username: String!): User
-    thoughts(username: String): [Thought]
-    thought(thoughtId: ID!): Thought
+    
     me: User
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    saveBook(authors: Array!, description: String!, title: String!, bookId: ID!, image: String!, link: String!): User
+    saveBook(authors: [String]!, description: String!, title: String!, bookId: ID!, image: String!, link: String!): User
     removeBook(bookId: ID!): User
   }
 `;
